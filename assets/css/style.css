@@ -17,13 +17,19 @@ a, a:hover, a:focus{
 	text-decoration: none;
 }
 a:hover{
-	color: grey;
+	color: var(--darkbg);
 }
 a{
-	color: white;
+	color: black;
 }
 .white{
 	color: white;
+}
+.darkbg{
+	color: var(--darkbg);
+}
+.extradarkbg{
+	color: var(--extradarkbg);
 }
 
 :root{
@@ -97,4 +103,13 @@ a{
 	}
 }
 
-/* end header */ 
+/* end header */
+
+/* footer  */
+#footer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;	
+	width: 100%;
+	background: var(--extradarkbg);
+}

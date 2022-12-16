@@ -46,10 +46,10 @@
 				<div>
 				<div id="hldiv" class="side_space container row_style">
 						<div id="cart_logo_div">
-							<a href="#"><i id="cart_logo" class="fa-solid fa-cart-shopping"></i></a>
+							<a href="cart.php"><i id="cart_logo" class="fa-solid fa-cart-shopping white"></i></a>
 						</div>
 						<div id="wishlist_logo_div" class="">
-							<a href="#"><i id="wishlist_logo" class="fa-solid fa-heart"></i></a>
+							<a href="wishlist"><i id="wishlist_logo" class="white fa-solid fa-heart"></i></a>
 						</div>
 					</div>
 			</div>
@@ -59,9 +59,9 @@
 							Products
 						</button>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#?n='Electronics'">Electronics</a></li>
-							<li><a class="dropdown-item" href="#">Bags</a></li>
-							<li><a class="dropdown-item" href="#">Shoes</a></li>
+							<li><a class="dropdown-item" href="cart.php">Cart</a></li>
+							<li><a class="dropdown-item" href="wishlist.php">Wishlist</a></li>
+							<li><a class="dropdown-item" href="order.php">Your orders</a></li>
 						</ul>
 					</div>
 			</div>
