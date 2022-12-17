@@ -32,7 +32,7 @@
 	<div>
 		<div id="header">
 			<div class="container">
-				<span><h3 class="white">Online Shop</h3></span>
+				<span><a href="index.php"><h3 class="white">Online Shop</h3></a></span>
 			</div>
 			<div>
 				<form>

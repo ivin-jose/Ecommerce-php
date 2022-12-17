@@ -142,3 +142,20 @@ height: 30vh;
 	height: 15vh;
 	object-fit: contain;
 }
+
+/* cart */
+
+#cartnumber{
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: space-between;
+}
+.cart_product_orginal_price{
+	text-decoration: line-through;
+}
+.price_div{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
