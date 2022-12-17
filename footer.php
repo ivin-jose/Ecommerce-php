@@ -24,6 +24,13 @@
 
 	<!-- font awsome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <style type="text/css">
+    #footer_hr{
+          width: 100%;
+    height: 2px;
+    background: red;
+    }
+  </style>
 
 </head>
 <body>
@@ -31,6 +38,7 @@
 	<div>
 		<div>
 			<!-- Footer -->
+      <hr id="footer_hr">
 <footer class="text-center text-lg-start text-muted">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
