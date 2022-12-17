@@ -28,6 +28,7 @@
 
 </head>
 <body>
+	<div id="preloader"></div>
 
 	<div>
 		<div id="header">
@@ -49,7 +50,7 @@
 							<a href="cart.php"><i id="cart_logo" class="fa-solid fa-cart-shopping white"></i></a>
 						</div>
 						<div id="wishlist_logo_div" class="">
-							<a href="wishlist"><i id="wishlist_logo" class="white fa-solid fa-heart"></i></a>
+							<a href="wishlist.php"><i id="wishlist_logo" class="white fa-solid fa-heart"></i></a>
 						</div>
 					</div>
 			</div>
@@ -73,3 +74,4 @@
 
 </body>
 </html>
+<script type="text/javascript" src="./assets/js/main.js"></script>

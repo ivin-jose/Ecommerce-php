@@ -6,6 +6,7 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<script type="text/javascript" src="./assets/js/main.js"></script>
 
 
 
@@ -51,3 +52,5 @@
 		include 'footer.php';
 	?>
 </body>
+</html>
+<script type="text/javascript" src="./assets/js/main.js"></script>

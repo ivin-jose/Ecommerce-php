@@ -51,3 +51,5 @@
 		include 'footer.php';
 	?>
 </body>
+</html>
+<script type="text/javascript" src="./assets/js/main.js"></script>
