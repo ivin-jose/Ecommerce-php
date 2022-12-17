@@ -76,10 +76,46 @@
 						<h3>GT MST</h3>
 						<p>only $33</p>
 					</div>
-					
 				</div>
 			</div>
 
+		</div>
+	</div>
+
+	<!-- brand logos -->
+
+	<div id="brandlogos space">
+		<div class="row container-fluid">
+			<div class="col-lg-2 col-md-3">
+				<div class="brandlogo_box">
+					<a href="#"><img src="./assets/images/brandlogos/canon.png" class="d-block w-100" alt="..."></a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3">
+				<div class="brandlogo_box">
+					<a href="#"><img src="./assets/images/brandlogos/nike.png" class="d-block w-100" alt="..."></a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3">
+				<div class="brandlogo_box">
+					<a href="#"><img src="./assets/images/brandlogos/nike.png" class="d-block w-100" alt="..."></a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3">
+				<div class="brandlogo_box">
+					<a href="#"><img src="./assets/images/brandlogos/hp.jpg" class="d-block w-100" alt="..."></a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3">
+				<div class="brandlogo_box">
+					<a href="#"><img src="./assets/images/brandlogos/canon.png" class="d-block w-100" alt="..."></a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3">
+				<div class="brandlogo_box">
+					<a href="#"><img src="./assets/images/brandlogos/nike.png" class="d-block w-100" alt="..."></a>
+				</div>
+			</div>
 		</div>
 	</div>
 
