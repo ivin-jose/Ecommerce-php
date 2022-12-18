@@ -43,13 +43,15 @@
 	<div id="product_ads_2">
 		<div class="row container-fluid" id="product_ads_2">
 			<div class="col-md-3 col-lg-3 container space">
+				<a href="product_show.php?id=2">
 				<div class="img_box">
-					<a href="#"><img src="./assets/images/m3.jpg" class="d-block w-100" alt="..."></a>
+					<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
 					<div class="container">
 						<h3>GT MST</h3>
 						<p>only $33</p>
 					</div>
 				</div>
+			</a>
 			</div>
 			<div class="col-md-3 col-lg-3 container space">
 				<div class="img_box">

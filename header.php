@@ -57,12 +57,12 @@
 			<div>
 				<div class="dropdown container space">
 						<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-							Products
+							Categories
 						</button>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="cart.php">Cart</a></li>
-							<li><a class="dropdown-item" href="wishlist.php">Wishlist</a></li>
-							<li><a class="dropdown-item" href="order.php">Your orders</a></li>
+							<li><a class="dropdown-item" href="products.php?category=electronics">Electronics</a></li>
+							<li><a class="dropdown-item" href="products.php?category=fashion">Fashion</a></li>
+							<li><a class="dropdown-item" href="products.php?category=homeapliances">Home Apliances</a></li>
 						</ul>
 					</div>
 

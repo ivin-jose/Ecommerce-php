@@ -31,8 +31,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 col-lg-3 container space">
+						<a href="product_show.php?id=2">
 						<div class="img_box">
-							<a href="#"><img src="./assets/images/m3.jpg" class="d-block w-100" alt="..."></a>
+							<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
 							<div class="container">
 								<h4>product name</h4>
 								<div class="price_div">
@@ -41,6 +42,7 @@
 								</div>
 							</div>
 						</div>
+					</a>
 					</div>
 				</div>					
 			</div>

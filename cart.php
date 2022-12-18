@@ -32,8 +32,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 col-lg-3 container space">
+						<a href="product_show.php?id=2">
 						<div class="img_box">
-							<a href="#"><img src="./assets/images/m3.jpg" class="d-block w-100" alt="..."></a>
+							<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
 							<div class="container">
 								<h3>product name</h3>
 								<div class="price_div">
@@ -42,8 +43,30 @@
 								</div>
 							</div>
 						</div>
+					</a>
 					</div>
 				</div>					
+			</div>
+			<div class="container">
+				<div class="row_style">
+					<div>
+						<h4>Total Items :</h4>
+					</div>
+					<div class="side_space">
+						<h4>2</h4>
+					</div>
+				</div>
+				<div class="row_style">
+					<div>
+						<h4>Total Price :</h4>
+					</div>
+					<div class="side_space">
+						<h4>$4300</h4>
+					</div>
+				</div>
+				<div>
+					<a href="place_order.php" class="btn btn-primary main_theme">ORDER NOW</a>
+				</div>
 			</div>
 		</div>
 	</main>

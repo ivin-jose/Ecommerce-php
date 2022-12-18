@@ -6,8 +6,10 @@
 	<title>products</title>
 
 	<!-- Bootstrap 5 -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.4/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.4/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.5/dist/js/bootstrap.bundle.min.js"></script>
 
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -29,10 +31,28 @@
 
 </head>
 <body>
-
 	<div>
-		content
+		<div class="row container row_style">
+			<div class="col-md-6 col-lg-6 container space">
+				<a href="product_show.php?id=2">
+					<div class="products_show_img">
+						<div class="container space" style="width: 350px;">
+							<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
+						</div>
+						<div class="container space">
+							<h4>product name</h4>
+							<div class="price_dv">
+								<h4 class="cart_product_selling_price">$7,999</h4>
+								<h6 class="cart_product_orginal_price side_space">$17,000</h6>
+								<p>short summary fdldf dfkjdf dkjfndflj dkjdfvn dkjfnlj kjdsfnlfdjn kjnj dkjfnlvjdn kjlnrgoe qlknrglern kjngrl</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
 	</div>
+
     <?php
 	include 'footer.php';
 	?>

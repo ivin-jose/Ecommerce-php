@@ -98,13 +98,13 @@
             Products
           </h6>
           <p>
-            <a href="catagory_selection.php?catogery=electronics" class=" ">Electronics</a>
+            <a href="products.php?category=electronics" class=" ">Electronics</a>
           </p>
           <p>
-            <a href="catagory_selection.php?catogery=fashion" class=" ">Fashions</a>
+            <a href="products.php?category=fashion" class=" ">Fashions</a>
           </p>
           <p>
-            <a href="catagory_selection.php?catogery=homeappliences" class="">Home Appliences</a>
+            <a href="products.php?category=homeappliences" class="">Home Appliences</a>
           </p>
         </div>
         <!-- Grid column -->
