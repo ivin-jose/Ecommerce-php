@@ -40,6 +40,9 @@
 									<h4 class="cart_product_selling_price">$7,999</h4>
 									<h6 class="cart_product_orginal_price side_space">$17,000</h6>
 								</div>
+								<div>
+									<a href="remove_cart.php?id=2" class="btn btn-primary main_theme space">Remove</a>
+								</div>
 							</div>
 						</div>
 					</a>
