@@ -32,6 +32,9 @@ a:hover{
 a{
 	color: black;
 }
+.dropdown-item:active{
+	background: var(--darkbg);
+}
 .white{
 	color: white;
 }
@@ -187,8 +190,7 @@ height: 30vh;
 	height: 40vh;
 	display: flex;
 	align-items: center;
-    border-radius: 3px;
-    border: 1px solid;
+	border-right: 1px solid;
 }
 .products_show_img img{
 	height: 150px;

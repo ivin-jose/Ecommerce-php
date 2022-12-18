@@ -32,8 +32,40 @@
 </head>
 <body>
 	<div>
-		<div class="row container row_style">
-			<div class="col-md-6 col-lg-6 container space">
+		<div id="sorting_div">
+			<div class="dropdown container space">
+				<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+					Sort
+				</button>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="sorting.php?value=1&&category=.this">price low-> high</a></li>
+					<li><a class="dropdown-item" href="sorting.php?value=0&&category=.this">price high-> low</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="filter_div">
+			
+		</div>
+		<div class="row container row_style space">
+			<div class="col-md-6 col-lg-6 container">
+				<a href="product_show.php?id=2">
+					<div class="products_show_img">
+						<div class="container space" style="width: 350px;">
+							<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
+						</div>
+						<div class="container space">
+							<h4>product name</h4>
+							<div class="price_dv">
+								<h4 class="cart_product_selling_price">$7,999</h4>
+								<h6 class="cart_product_orginal_price side_space">$17,000</h6>
+								<p>short summary fdldf dfkjdf dkjfndflj dkjdfvn dkjfnlj kjdsfnlfdjn kjnj dkjfnlvjdn kjlnrgoe qlknrglern kjngrl</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-6 col-lg-6 container">
 				<a href="product_show.php?id=2">
 					<div class="products_show_img">
 						<div class="container space" style="width: 350px;">
