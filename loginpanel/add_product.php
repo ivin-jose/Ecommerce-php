@@ -1,13 +1,13 @@
 <?php 
- include_once 'db-connect.php';
- include_once 'session.php';
+include_once 'db-connect.php';
+include_once 'session.php';
 
- if ($_SESSION['type'] != 'admin') {
+if ($_SESSION['type'] != 'admin') {
   header("Location: index.php");
- }
- if ($_SESSION["type"] != 'admin') {
-     header("Location: main.php");
- }
+}
+if ($_SESSION["type"] != 'admin') {
+ header("Location: main.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -93,9 +93,63 @@
     </div>
     <div class="col-lg-6 col-md-6">
         <div class="container"><br>
-            <h3>ADMIN PAGE</h3>
+            <h3>ADD PRODUCTS</h3>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn btn-primary main_theme space" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+         Add Portfolio
+     </button>
+
+     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">ADD PRODUCT</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                <form method="POST" action="upload_product.php" enctype="multipart/form-data" id="resume_upload_portfolio" name="resume_upload_portfolio">
+                    <input type="text" name="product_name" class="space form-control" placeholder="Product name"></input><br>
+                    <input type="text" name="selling_price" class="space form-control" placeholder="Selling price"></input><br>
+                    <input type="text" name="orginal_price" class="space form-control" placeholder="Orginal price"></input><br>
+
+                    <input type="text" name="category" class="space form-control" placeholder="Category"></input><br>
+                    <input type="text" name="brand" class="space form-control" placeholder="Brand"></input><br>
+                    <input type="text" name="specifications" class="space form-control" placeholder="Specifications"></input><br>
+                    <input type="text" name="short_summery" class="space form-control" placeholder="Short Summery"></input><br>
+
+                    <textarea type="text" name="long_summery" class="space form-control" placeholder="Long summery"></textarea><br>
+
+                    <input type="file" name="image1[]" class="form-control"/>
+                    <input type="file" name="image2[]" class="form-control"/>
+                    <input type="file" name="image3[]" class="form-control"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary main_theme" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary main_theme">Submit</button>
+                </form>
+            </div>     
         </div>
     </div>
+</div><br><br>
+<?php
+$stmt2 = $mysqli->prepare ("SELECT id, productname, img1  FROM product");
+                if($stmt2->execute()) {
+                    $stmt2->bind_result($id, $productname, $img1);
+                    while ($stmt2->fetch()) {
+                        $image = unserialize($img1);
+                        foreach($image as $pic) {
+                            echo '<a href="show_product.php?id='. $id .'"
+                            <h3>'. $productname .'</h3><br>
+
+                            <img width="200px" height="200"src="'. $pic .'"></a>';
+                        }
+                    }
+                }
+?>
+</div>
+</main>
+</div>
 </div>
 </main>
 </body>
