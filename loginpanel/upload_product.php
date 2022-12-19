@@ -74,7 +74,7 @@ if (isset($_POST['product_name'], $_POST['selling_price'], $_POST['orginal_price
     }
   }
 
-  if ($product_name !='') {
+  if ($product_name != '') {
   $insert_resume = $mysqli->prepare("INSERT INTO product (productname, sellingprice, orginalprice, catagory, specifications, short_summery, long_summery, img1, img2, img3, brand) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
   $img1 = serialize($img1_array_main);
@@ -84,12 +84,9 @@ if (isset($_POST['product_name'], $_POST['selling_price'], $_POST['orginal_price
   $insert_resume->bind_param('sssssssssss', $product_name, $selling_price, $orginal_price, $category, $specifications, $short_summery, $long_summery, $img1, $img2, $img3, $brand);
   $insert_resume->execute();
 
-  header('Location: add_product.php');
+  //header('Location: add_product.php');
   echo 'success';
   }
-
-  
-
 }
 ?>
 

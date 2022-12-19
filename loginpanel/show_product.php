@@ -94,7 +94,10 @@ if ($_SESSION["type"] != 'admin') {
     <div class="col-lg-6 col-md-6">
 
         <?php
-        $stmt2 = $mysqli->prepare ("SELECT id, productname, specifications, sellingprice, orginalprice, short_summery, long_summery, brand, img1, img2, img3  FROM product");
+
+        $id = $_GET['id'];
+
+        $stmt2 = $mysqli->prepare ("SELECT id, productname, specifications, sellingprice, orginalprice, short_summery, long_summery, brand, img1, img2, img3  FROM product WHERE id = '$id'");
         if($stmt2->execute()) {
             $stmt2->bind_result($id, $productname, $specifications, $selling_price, $orginal_price, $short_summery, $long_summery, $brand, $img1, $img2, $img3);
             while ($stmt2->fetch()) {

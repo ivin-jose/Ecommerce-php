@@ -142,7 +142,7 @@ $stmt2 = $mysqli->prepare ("SELECT id, productname, img1  FROM product");
                             echo '<a href="show_product.php?id='. $id .'"
                             <h3>'. $productname .'</h3><br>
 
-                            <img width="200px" height="200"src="'. $pic .'"></a>';
+                            <img width="200px" height="200"src="'. $pic .'"></a><BR><BR>';
                         }
                     }
                 }
