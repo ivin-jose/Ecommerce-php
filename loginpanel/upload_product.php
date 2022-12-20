@@ -19,6 +19,7 @@ if (isset($_POST['product_name'], $_POST['selling_price'], $_POST['orginal_price
   $short_summery = filter_input(INPUT_POST, 'short_summery', FILTER_SANITIZE_STRING);
   $long_summery = filter_input(INPUT_POST, 'long_summery', FILTER_SANITIZE_STRING);
   $brand = filter_input(INPUT_POST, 'brand', FILTER_SANITIZE_STRING);
+  $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
   //Adding images to database
   // image 1
 
@@ -75,16 +76,16 @@ if (isset($_POST['product_name'], $_POST['selling_price'], $_POST['orginal_price
   }
 
   if ($product_name != '') {
-  $insert_resume = $mysqli->prepare("INSERT INTO product (productname, sellingprice, orginalprice, catagory, specifications, short_summery, long_summery, img1, img2, img3, brand) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  $insert_resume = $mysqli->prepare("INSERT INTO product (productname, sellingprice, orginalprice, catagory, specifications, short_summery, long_summery, img1, img2, img3, brand, type) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
   $img1 = serialize($img1_array_main);
   $img2 = serialize($img2_array_main);
   $img3 = serialize($img3_array_main);
 
-  $insert_resume->bind_param('sssssssssss', $product_name, $selling_price, $orginal_price, $category, $specifications, $short_summery, $long_summery, $img1, $img2, $img3, $brand);
+  $insert_resume->bind_param('ssssssssssss', $product_name, $selling_price, $orginal_price, $category, $specifications, $short_summery, $long_summery, $img1, $img2, $img3, $brand, $type);
   $insert_resume->execute();
 
-  //header('Location: add_product.php');
+  header('Location: add_product.php');
   echo 'success';
   }
 }

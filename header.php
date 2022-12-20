@@ -1,3 +1,8 @@
+<?php
+include_once 'loginpanel/db-connect.php';
+include_once 'loginpanel/session.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

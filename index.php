@@ -20,13 +20,13 @@
 		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="./assets/images/m3.jpg" class="d-block w-100" alt="fff">
+					<img src="./assets/images/ad2.webp" class="d-block w-100" alt="fff">
 				</div>
 				<div class="carousel-item">
-					<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
+					<img src="./assets/images/ad3.jpg" class="d-block w-100" alt="...">
 				</div>
 				<div class="carousel-item">
-					<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
+					<img src="./assets/images/ad4.webp" class="d-block w-100" alt="...">
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -42,45 +42,30 @@
 
 	<div id="product_ads_2">
 		<div class="row container-fluid" id="product_ads_2">
-			<div class="col-md-3 col-lg-3 container space">
-				<a href="product_show.php?id=2">
-				<div class="img_box">
-					<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
-					<div class="container">
-						<h3>GT MST</h3>
-						<p>only $33</p>
-					</div>
-				</div>
-			</a>
-			</div>
-			<div class="col-md-3 col-lg-3 container space">
-				<div class="img_box">
-					<a href="#"><img src="./assets/images/m3.jpg" class="d-block w-100" alt="..."></a>
-					<div class="container">
-						<h3>GT MST</h3>
-						<p>only $33</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-lg-3 container space">
-				<div class="img_box">
-					<a href="#"><img src="./assets/images/m3.jpg" class="d-block w-100" alt="..."></a>
-					<div class="container">
-						<h3>GT MST</h3>
-						<p>only $33</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-lg-3 container space">
-				<div class="img_box">
-					<a href="#"><img src="./assets/images/m1.jpg" class="d-block w-100" alt="..."></a>
-					<div class="container">
-						<h3>GT MST</h3>
-						<p>only $33</p>
-					</div>
-				</div>
-			</div>
-
+			<?php
+			$stmt2 = $mysqli->prepare ("SELECT id, type, brand, img1, sellingprice  FROM product LIMIT 4");
+			if($stmt2->execute()) {
+				$stmt2->bind_result($id, $type, $brand, $img1, $sellingprice);
+				while ($stmt2->fetch()) {
+					$image = unserialize($img1);
+					foreach($image as $pic) {
+						echo '
+						<div class="col-md-3 col-lg-3 container space">
+						<a href="product_show.php?id='. $id .'">
+						<div class="img_box container">
+						<img src="loginpanel/'. $pic .'" class="d-block w-100 space" alt="...">
+						<div class="container">
+						<h4>'. $brand .' '. $type .'</h4>
+						<p>Only ₹ '. $sellingprice.'</p>
+						</div>
+						</div>
+						</a>
+						</div>
+						';
+					}
+				}
+			}
+			?>
 		</div>
 	</div>
 

@@ -113,7 +113,9 @@ if ($_SESSION["type"] != 'admin') {
                     <input type="text" name="selling_price" class="space form-control" placeholder="Selling price"></input><br>
                     <input type="text" name="orginal_price" class="space form-control" placeholder="Orginal price"></input><br>
 
-                    <input type="text" name="category" class="space form-control" placeholder="Category"></input><br>
+                    <input type="text" name="category" class="space form-control" placeholder="Category, Fashion electronics etc.."></input><br>
+                    <input type="text" name="type" class="space form-control" placeholder="Type, camara desktop etc.."></input><br>
+
                     <input type="text" name="brand" class="space form-control" placeholder="Brand"></input><br>
                     <input type="text" name="specifications" class="space form-control" placeholder="Specifications"></input><br>
                     <input type="text" name="short_summery" class="space form-control" placeholder="Short Summery"></input><br>
