@@ -139,10 +139,10 @@ $stmt2 = $mysqli->prepare ("SELECT id, productname, img1  FROM product");
                     while ($stmt2->fetch()) {
                         $image = unserialize($img1);
                         foreach($image as $pic) {
-                            echo '<a href="show_product.php?id='. $id .'"
-                            <h3>'. $productname .'</h3><br>
-
-                            <img width="200px" height="200"src="'. $pic .'"></a><BR><BR>';
+                            echo '
+                            <h5>'. $productname .'</h5>
+                            <a href="show_product.php?id='. $id .'">
+                            <img src="'. $pic .'" width="200" width="200" class="img-thumbnail" alt="..."></a>';
                         }
                     }
                 }
