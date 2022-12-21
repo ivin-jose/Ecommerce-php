@@ -104,7 +104,7 @@
             <a href="products.php?category=fashion" class=" ">Fashions</a>
           </p>
           <p>
-            <a href="products.php?category=homeappliences" class="">Home Appliences</a>
+            <a href="products.php?category=HomeAplliences" class="">Home Appliences</a>
           </p>
         </div>
         <!-- Grid column -->

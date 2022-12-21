@@ -75,8 +75,10 @@
 							<div class="container space">
 							<h4>'. $productname .'</h4>
 							<div class="price_dv">
+							<div class="price_div">
 							<h4 class="cart_product_selling_price">₹ '. $sellingprice .'</h4>
 							<h6 class="cart_product_orginal_price side_space">₹ '. $orginal_price .'</h6>
+							</div>
 							<p>'. $short_summery .'</p>
 							</div>
 							</div>

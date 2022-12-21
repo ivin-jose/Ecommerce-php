@@ -67,7 +67,7 @@ include_once 'loginpanel/session.php';
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="products.php?category=electronics">Electronics</a></li>
 							<li><a class="dropdown-item" href="products.php?category=fashion">Fashion</a></li>
-							<li><a class="dropdown-item" href="products.php?category=homeapliances">Home Apliances</a></li>
+							<li><a class="dropdown-item" href="products.php?category=HomeAplliences">Home Apliances</a></li>
 						</ul>
 					</div>
 
