@@ -55,7 +55,7 @@
 				$searching_element = filter_input(INPUT_POST, 'searching_element' ,FILTER_SANITIZE_STRING);
 				$search = ('%'. $searching_element. '%');
 
-				$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search'");
+				$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search'");
 				if($stmt2->execute()) {
 					$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
 					while ($stmt2->fetch()) {

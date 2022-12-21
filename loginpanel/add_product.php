@@ -120,6 +120,8 @@ if ($_SESSION["type"] != 'admin') {
                     <input type="text" name="specifications" class="space form-control" placeholder="Specifications"></input><br>
                     <input type="text" name="short_summery" class="space form-control" placeholder="Short Summery"></input><br>
 
+                    <input type="text" name="searchingkeywords" class="space form-control" placeholder="searching_keywords"></input><br>
+
                     <textarea type="text" name="long_summery" class="space form-control" placeholder="Long summery"></textarea><br>
 
                     <input type="file" name="image1[]" class="form-control"/>

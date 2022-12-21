@@ -1,9 +1,23 @@
+<?php
+include_once 'loginpanel/db-connect.php';
+include_once 'loginpanel/session.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
+	<?php
+		if (isset($_GET['category'])) {
+
+				$category = $_GET['category'];
+				
+				$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery FROM product WHERE catagory = '$category'");
+				if($stmt2->execute()) {
+					$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
+					}}
+	?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>products</title>
+	<?php echo'<title>'. $productname .'</title>' ?>
 
 	<!-- Bootstrap 5 -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.4/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,40 +62,35 @@
 			
 		</div>
 		<div class="row container row_style space">
-			<div class="col-md-6 col-lg-6 container">
-				<a href="product_show.php?id=2">
+			
+			<?php
+			while ($stmt2->fetch()) {
+				$image = unserialize($img1);
+				foreach($image as $pic) {
+					echo '
+					<div class="col-md-6 col-lg-6 container">
+					<a href="product_show.php?id='. $id .'">
 					<div class="products_show_img">
-						<div class="container space" style="width: 350px;">
-							<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
-						</div>
-						<div class="container space">
-							<h4>product name</h4>
-							<div class="price_dv">
-								<h4 class="cart_product_selling_price">$7,999</h4>
-								<h6 class="cart_product_orginal_price side_space">$17,000</h6>
-								<p>short summary fdldf dfkjdf dkjfndflj dkjdfvn dkjfnlj kjdsfnlfdjn kjnj dkjfnlvjdn kjlnrgoe qlknrglern kjngrl</p>
-							</div>
-						</div>
+					<div class="container space" style="width: 350px;">
+					<img src="loginpanel/'. $pic .'" class="d-block w-100" alt="...">
+					</div> 
+					<div class="container space">
+					<h4>'. $productname .'</h4>
+					<div class="price_dv">
+					<h4 class="cart_product_selling_price">₹ '. $sellingprice .'</h4>
+					<h6 class="cart_product_orginal_price side_space">₹ '. $orginal_price .'</h6>
+					<p>'. $short_summery .'</p>
 					</div>
-				</a>
-			</div>
-			<div class="col-md-6 col-lg-6 container">
-				<a href="product_show.php?id=2">
-					<div class="products_show_img">
-						<div class="container space" style="width: 350px;">
-							<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
-						</div>
-						<div class="container space">
-							<h4>product name</h4>
-							<div class="price_dv">
-								<h4 class="cart_product_selling_price">$7,999</h4>
-								<h6 class="cart_product_orginal_price side_space">$17,000</h6>
-								<p>short summary fdldf dfkjdf dkjfndflj dkjdfvn dkjfnlj kjdsfnlfdjn kjnj dkjfnlvjdn kjlnrgoe qlknrglern kjngrl</p>
-							</div>
-						</div>
 					</div>
-				</a>
-			</div>
+					</div>
+					</a>
+					</div>
+					';
+				}
+			}
+			?>
+
+
 		</div>
 	</div>
 
