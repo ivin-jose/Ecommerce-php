@@ -52,8 +52,12 @@ include_once 'loginpanel/session.php';
 					Sort
 				</button>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="sorting.php?value=1&&category=.this">price low-> high</a></li>
-					<li><a class="dropdown-item" href="sorting.php?value=0&&category=.this">price high-> low</a></li>
+					<?php
+					echo '
+					<li><a class="dropdown-item" href="sorting.php?value=1&&category='. $category.'">price low-> high</a></li>
+					<li><a class="dropdown-item" href="sorting.php?value=0&&category='. $category.'">price high-> low</a></li>
+					';
+					?>
 				</ul>
 			</div>
 		</div>
@@ -89,8 +93,6 @@ include_once 'loginpanel/session.php';
 				}
 			}
 			?>
-
-
 		</div>
 	</div>
 
