@@ -41,10 +41,10 @@ include_once 'loginpanel/session.php';
 				<span><a href="index.php"><h3 class="white">Online Shop</h3></a></span>
 			</div>
 			<div>
-				<form action="products.php" method="POST">
+				<form action="search_product.php" method="POST">
 					<div id="search_form_div" class="row_style">
-						<input type="search" name="product_search" class="form-control" placeholder="search products, brands etc.." id="searchbar">
-						<input type="submit" name="search_submit" class="btn btn-primary main_theme side_space">
+						<input type="search" name="searching_element" class="form-control" placeholder="search products, brands etc.." id="searchbar">
+						<input type="submit" name="search_submit" class="btn btn-primary main_theme side_space" value="Search">
 					</div>
 				</form>
 			</div>

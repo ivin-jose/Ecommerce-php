@@ -194,7 +194,7 @@ height: 30vh;
 }
 .products_show_img img{
 	height: 150px;
-	object-fit: fill;
+	object-fit: contain;
 }
 .products_show_img:hover{
 	transform: translate(0, -1px);
@@ -214,7 +214,7 @@ height: 30vh;
 #product_show_img img{
 	height: 50vh;
 	border-radius: 5px;
-	object-fit: fill;
+	object-fit: contain;
 }
 
 @media screen and (max-width: 800px) {
