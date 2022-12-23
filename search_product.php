@@ -38,11 +38,12 @@
 					Sort
 				</button>
 				<ul class="dropdown-menu">
-					<?php
-					echo '
-					<li><a class="dropdown-item" href="sorting.php?value=1&&category='. $category.'">price low-> high</a></li>
-					<li><a class="dropdown-item" href="sorting.php?value=0&&category='. $category.'">price high-> low</a></li>
-					';
+			     
+                    <?php
+                    $searching_element = $_POST['searching_element'];
+					  	echo '
+					  		<li><a class="dropdown-item" href="search_sorting.php?value=1&&search_word='. $searching_element.'">price low-> high</a></li>
+							<li><a class="dropdown-item" href="search_sorting.php?value=0&&search_word='. $searching_element.'">price high-> low</a></li>'
 					?>
 				</ul>
 			</div>
@@ -53,15 +54,14 @@
 		</div>
 		<div class="row container row_style space">
 			<?php
-
 			if (isset($_POST['searching_element'])) {
 
 				$searching_element = filter_input(INPUT_POST, 'searching_element' ,FILTER_SANITIZE_STRING);
 				$search = ('%'. $searching_element. '%');
 
-				$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search'");
+				$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search'");
 				if($stmt2->execute()) {
-					$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
+					$stmt2->bind_result($id, $category, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
 					while ($stmt2->fetch()) {
 						$image = unserialize($img1);
 						foreach($image as $pic) {
@@ -90,10 +90,7 @@
 					}
 				}
 			}
-							?>
-
-
-
+			?>
 		</div>
 	</div>
 

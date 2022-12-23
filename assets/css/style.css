@@ -76,8 +76,7 @@ a{
 	align-items: center;
 }
 .row{
-	margin-left: 0px !important;
-	margin-right: 0px !important;
+	margin-left: calc(2 * var(--bs-gutter-x)) !important;
 }
 
 
