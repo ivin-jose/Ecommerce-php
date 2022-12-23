@@ -19,11 +19,27 @@
 	include 'header.php';
 	?>
 
+	<?php 
+
+	$stmt2 = $mysqli->prepare ("SELECT count(id) as no_id FROM cart");
+		if($stmt2->execute()) {
+			$stmt2->bind_result($no_id);
+			while ($stmt2->fetch()) {
+				}
+			}
+	$stmt2 = $mysqli->prepare ("SELECT sum(sellingprice) as totalprice FROM cart");
+		if($stmt2->execute()) {
+			$stmt2->bind_result($totalprice);
+			while ($stmt2->fetch()) {
+				}
+			}
+	 ?>
+
 	<main>
 		<div class="container space" id="cartnumber">
 
 			<div>
-				<h3>1</h3>
+				<?php echo '<h3>'. $no_id .'</h3>'?>
 			</div>
 			<h2>Your cart</h2>
 		</div>
@@ -31,32 +47,44 @@
 		<div>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-3 col-lg-3 container space">
-						<a href="product_show.php?id=2">
-						<div class="img_box">
-							<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
-							<div class="container">
-								<h3>product name</h3>
-								<div class="price_div">
-									<h4 class="cart_product_selling_price">$7,999</h4>
-									<h6 class="cart_product_orginal_price side_space">$17,000</h6>
-								</div>
-								<div>
-									<a href="remove_cart.php?id=2" class="btn btn-primary main_theme space">Remove</a>
-								</div>
-							</div>
+					<?php
+					$stmt2 = $mysqli->prepare ("SELECT id, productname, sellingprice, originalprice, product_id, image  FROM cart");
+			if($stmt2->execute()) {
+				$stmt2->bind_result($id, $productname, $sellingprice, $originalprice, $product_id, $image);
+
+					while ($stmt2->fetch()) {
+					{
+						echo '
+						<div class="col-md-3 col-lg-3 container space">
+						<a href="product_show.php?id='. $product_id .'">
+						<div class="img_box cart_img_box container">
+						<img src="loginpanel/'. $image .'" class="d-block w-100 container" alt="...">
+						<div class="container">
+						<h6>'. $productname.'</h6>
+						<div class="price_div">
+						<h4 class="cart_product_selling_price">₹'. $sellingprice.'</h4>
+						<h6 class="cart_product_orginal_price side_space"></h6>
 						</div>
-					</a>
-					</div>
+						<div>
+						<a href="remove_cart.php?id=" class="btn btn-primary main_theme space">Remove</a>
+						</div>
+						</div>
+						</div>
+						</a>
+						</div>
+						';
+					}}}
+					?>
+	
 				</div>					
 			</div>
-			<div class="container">
+			<div class="container" id="cart_total_section">
 				<div class="row_style">
 					<div>
 						<h4>Total Items :</h4>
 					</div>
 					<div class="side_space">
-						<h4>2</h4>
+						<?php echo '<h4 class="darkbg">'. $no_id .'</h4>'?>
 					</div>
 				</div>
 				<div class="row_style">
@@ -64,7 +92,7 @@
 						<h4>Total Price :</h4>
 					</div>
 					<div class="side_space">
-						<h4>$4300</h4>
+						<?php echo '<h4 class="darkbg">₹'. $totalprice .'</h4>'?>
 					</div>
 				</div>
 				<div>

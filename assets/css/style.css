@@ -175,6 +175,12 @@ height: 30vh;
 	align-items: center;
 	justify-content: space-between;
 }
+#cart_total_section{
+	margin-top: 50px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .cart_product_orginal_price{
 	text-decoration: line-through;
 }
@@ -183,6 +189,12 @@ height: 30vh;
 	align-items: center;
 	justify-content: flex-start;
 }
+
+.cart_img_box{
+	height: 55vh;
+}
+
+
 
 /* products */
 .products_show_img{

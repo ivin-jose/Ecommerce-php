@@ -84,10 +84,10 @@
                         	</div>
                         	<div class="container price_div space">
                         	<div id="">
-                        	<a class="cart_btns main_theme btn btn-primary adding_cart_btn" href="adding_cart.php?id=2">Add to cart</a>
+                        	<a class="cart_btns main_theme btn btn-primary adding_cart_btn" href="adding_cart.php?id='.$id.'&&pic='.$pic1.'&&sp='.$selling_price.'&&op='.$orginal_price.'&&pname='.$productname.'">Add to cart</a>
                         	</div>
                         	<div id="">
-                        	<a class="order_btn btn btn-primary side_space" href="place_order.php?id=2">PLACE ORDER</a>
+                        	<a class="order_btn btn btn-primary side_space" href="place_order.php?id='.$id.'">PLACE ORDER</a>
                         	</div>
                         	</div>
                         	<div id="specifications">
