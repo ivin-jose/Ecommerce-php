@@ -180,6 +180,8 @@ height: 30vh;
 	display: flex;
     flex-direction: column;
     align-items: center;
+    background: #ddefff;
+    padding: 10px;
 }
 .cart_product_orginal_price{
 	text-decoration: line-through;

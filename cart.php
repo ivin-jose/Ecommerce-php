@@ -66,7 +66,7 @@
 						<h6 class="cart_product_orginal_price side_space"></h6>
 						</div>
 						<div>
-						<a href="remove_cart.php?id=" class="btn btn-primary main_theme space">Remove</a>
+						<a href="remove_cart.php?id='. $id .'" class="btn btn-primary main_theme space">Remove</a>
 						</div>
 						</div>
 						</div>
