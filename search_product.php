@@ -40,7 +40,7 @@
 				<ul class="dropdown-menu">
 			     
                     <?php
-                    $searching_element = $_POST['searching_element'];
+                    $searching_element = $_REQUEST['searching_element'];
 					  	echo '
 					  		<li><a class="dropdown-item" href="search_sorting.php?value=1&&search_word='. $searching_element.'">price low-> high</a></li>
 							<li><a class="dropdown-item" href="search_sorting.php?value=0&&search_word='. $searching_element.'">price high-> low</a></li>'
