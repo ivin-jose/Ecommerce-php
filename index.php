@@ -76,32 +76,32 @@
 		<div class="row container-fluid">
 			<div class="col-lg-2 col-md-3">
 				<div class="brandlogo_box">
-					<a href="#"><img src="./assets/images/brandlogos/canon.png" class="d-block w-100" alt="..."></a>
+					<a href="search_product.php?searching_element=canon"><img src="./assets/images/brandlogos/canon.png" class="d-block w-100" alt="..."></a>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-3">
 				<div class="brandlogo_box">
-					<a href="#"><img src="./assets/images/brandlogos/nike.png" class="d-block w-100" alt="..."></a>
+					<a href="search_product.php?searching_element=asus"><img src="./assets/images/brandlogos/asuss.png" class="d-block w-100" alt="..."></a>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-3">
 				<div class="brandlogo_box">
-					<a href="#"><img src="./assets/images/brandlogos/nike.png" class="d-block w-100" alt="..."></a>
+					<a href="search_product.php?searching_element=boat"><img src="./assets/images/brandlogos/boat.png" class="d-block w-100" alt="..."></a>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-3">
 				<div class="brandlogo_box">
-					<a href="#"><img src="./assets/images/brandlogos/hp.jpg" class="d-block w-100" alt="..."></a>
+					<a href="search_product.php?searching_element=hp"><img src="./assets/images/brandlogos/hp.jpg" class="d-block w-100" alt="..."></a>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-3">
 				<div class="brandlogo_box">
-					<a href="#"><img src="./assets/images/brandlogos/canon.png" class="d-block w-100" alt="..."></a>
+					<a href="search_product.php?searching_element=samsung"><img src="./assets/images/brandlogos/samsung.png" class="d-block w-100" alt="..."></a>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-3">
 				<div class="brandlogo_box">
-					<a href="#"><img src="./assets/images/brandlogos/nike.png" class="d-block w-100" alt="..."></a>
+					<a href="search_product.php?searching_element=dell"><img src="./assets/images/brandlogos/dell.png" class="d-block w-100" alt="..."></a>
 				</div>
 			</div>
 		</div>

@@ -54,9 +54,9 @@
 		</div>
 		<div class="row container row_style space">
 			<?php
-			if (isset($_POST['searching_element'])) {
+			if (isset($_REQUEST['searching_element'])) {
 
-				$searching_element = filter_input(INPUT_POST, 'searching_element' ,FILTER_SANITIZE_STRING);
+				$searching_element = $_REQUEST['searching_element'];
 				$search = ('%'. $searching_element. '%');
 
 				$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search'");
