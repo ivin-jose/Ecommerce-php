@@ -152,6 +152,7 @@ height: 30vh;
 	width: 100%;
     border: 2px solid #00b8b9;
     border-radius: 5px;
+    height: 50vh
 }
 .img_box:hover{
 	transform: translate(0, -4px);

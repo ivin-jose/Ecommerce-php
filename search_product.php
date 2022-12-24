@@ -62,7 +62,7 @@
 				$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search'");
 				if($stmt2->execute()) {
 					$stmt2->bind_result($id, $category, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
-					while ($stmt2->fetch()) {
+					while ($stmt2->fetch()) {	
 						$image = unserialize($img1);
 						foreach($image as $pic) {
 							echo '
