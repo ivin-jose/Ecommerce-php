@@ -151,7 +151,7 @@
     			<div class="row container-fluid" id="product_ads_2">
 
     				<?php
-    				$stmt2 = $mysqli->prepare ("SELECT id, type, brand, img1, sellingprice  FROM product WHERE type = '$type' LIMIT 4");
+    				$stmt2 = $mysqli->prepare ("SELECT id, type, brand, img1, sellingprice  FROM product WHERE type = '$type' ORDER BY RAND() LIMIT 4");
     				if($stmt2->execute()) {
     					$stmt2->bind_result($id, $type, $brand, $img1, $sellingprice);
     					while ($stmt2->fetch()) {
@@ -180,7 +180,7 @@
     			<div class="row container-fluid" id="product_ads_2">
 
     				<?php
-    				$stmt2 = $mysqli->prepare ("SELECT id, type, brand, img1, sellingprice  FROM product WHERE catagory = '$category' LIMIT 4");
+    				$stmt2 = $mysqli->prepare ("SELECT id, type, brand, img1, sellingprice  FROM product WHERE catagory = '$category' ORDER BY RAND() LIMIT 4");
     				if($stmt2->execute()) {
     					$stmt2->bind_result($id, $type, $brand, $img1, $sellingprice);
     					while ($stmt2->fetch()) {
