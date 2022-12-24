@@ -59,7 +59,7 @@
                         	</div>
                         	<div id="share_wishlist_main_div" class="space side_space">
                         	<div id="wishlist_div">
-                        	<a href="adding_wishlist.php?id=2" id="wishlist_btn" class="sw main_theme"><i class="fa-solid fa-heart"></i></a>
+                        	<a href="adding_wishlist.php?id='.$id.'&&pic='.$pic1.'&&sp='.$selling_price.'&&op='.$orginal_price.'&&pname='.$productname.'" id="wishlist_btn" class="sw main_theme"><i class="fa-solid fa-heart"></i></a>
                         	</div>
                         	<div id="share_div" class="space">
                         	<a href="#" id="share_btn" class="sw main_theme"><i class="fa-solid fa-share-nodes"></i></a>

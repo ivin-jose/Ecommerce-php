@@ -6,6 +6,7 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<script type="text/javascript" src="./assets/js/main.js"></script>
 
 
 
@@ -18,11 +19,20 @@
 	include 'header.php';
 	?>
 
+	<?php 
+
+	$stmt2 = $mysqli->prepare ("SELECT count(id) as no_id FROM wishlist");
+		if($stmt2->execute()) {
+			$stmt2->bind_result($no_id);
+			while ($stmt2->fetch()) {
+				}
+			}
+	?>
 	<main>
 		<div class="container space" id="cartnumber">
 
 			<div>
-				<h3>1</h3>
+				<?php echo '<h3>'. $no_id .'</h3>'?>
 			</div>
 			<h2>Your Wishlist</h2>
 		</div>
@@ -30,23 +40,35 @@
 		<div>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-3 col-lg-3 container space">
-						<a href="product_show.php?id=2">
-						<div class="img_box">
-							<img src="./assets/images/m3.jpg" class="d-block w-100" alt="...">
-							<div class="container">
-								<h4>product name</h4>
-								<div class="price_div">
-									<h4 class="cart_product_selling_price">$7,999</h4>
-									<h6 class="cart_product_orginal_price side_space">$17,000</h6>
-								</div>
-								<div>
-									<a href="remove_cart.php?id=2" class="btn btn-primary main_theme space">Remove</a>
-								</div>
-							</div>
+					<?php
+					$stmt2 = $mysqli->prepare ("SELECT id, product_name, sellingprice, originalprice, product_id, image  FROM wishlist");
+			if($stmt2->execute()) {
+				$stmt2->bind_result($id, $productname, $sellingprice, $originalprice, $product_id, $image);
+
+					while ($stmt2->fetch()) {
+					{
+						echo '
+						<div class="col-md-3 col-lg-3 container space">
+						<a href="product_show.php?id='. $product_id .'">
+						<div class="img_box cart_img_box container">
+						<img src="loginpanel/'. $image .'" class="d-block w-100 container" alt="...">
+						<div class="container">
+						<h6>'. $productname.'</h6>
+						<div class="price_div">
+						<h4 class="cart_product_selling_price">₹'. $sellingprice.'</h4>
+						<h6 class="cart_product_orginal_price side_space"></h6>
 						</div>
-					</a>
-					</div>
+						<div>
+						<a href="remove_wishlist.php?id='. $id .'" class="btn btn-primary main_theme space">Remove</a>
+						</div>
+						</div>
+						</div>
+						</a>
+						</div>
+						';
+					}}}
+					?>
+	
 				</div>					
 			</div>
 		</div>
