@@ -139,8 +139,8 @@
     			echo '<form action="adding_review.php" method="POST">
     			<input type="hidden" name="p_id" value="'. $id .'" />
     			<input type="textarea" name="username" id="username_review_textarea" placeholder="Username(must)" class="review_textarea"/>
-    			<input type="textarea" name="short_review" id="username_review_textarea" placeholder="Short Review(must)" class="review_textarea"/>
-    			<textarea type="textarea" name="long_review" id="username_review_textarea" placeholder="Long Summery(Optional)" class="review_textarea"></textarea><br>
+    			<input type="textarea" name="short_review" id="short_review_textarea" placeholder="Short Review(must)" class="review_textarea"/>
+    			<textarea type="textarea" name="long_review" id="long_review_textarea" placeholder="Long Summery(Optional)" class="review_textarea"></textarea><br>
     			<input id="review_submit_btn" type="submit" name="" class="btn btn-primary main_theme">
     			</form>';
     			?>
