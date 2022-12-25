@@ -44,9 +44,9 @@
 	<div id="product_ads_2">
 		<div class="row container-fluid" id="product_ads_2">
 			<?php
-			$stmt2 = $mysqli->prepare ("SELECT id, type, brand, img1, sellingprice  FROM product ORDER BY RAND() LIMIT 4");
+			$stmt2 = $mysqli->prepare ("SELECT id, shortname, brand, img1, sellingprice  FROM product ORDER BY RAND() LIMIT 4");
 			if($stmt2->execute()) {
-				$stmt2->bind_result($id, $type, $brand, $img1, $sellingprice);
+				$stmt2->bind_result($id, $shortname, $brand, $img1, $sellingprice);
 				while ($stmt2->fetch()) {
 					$image = unserialize($img1);
 					foreach($image as $pic) {
@@ -56,7 +56,7 @@
 						<div class="img_box container">
 						<img src="loginpanel/'. $pic .'" class="d-block w-100 space" alt="...">
 						<div class="container">
-						<h5>'. $brand .' '. $type .'</h5>
+						<h5>'. $shortname .'</h5>
 						<p>Only ₹ '. $sellingprice.'</p>
 						</div>
 						</div>

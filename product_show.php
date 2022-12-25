@@ -92,7 +92,7 @@
                         	</div>
                         	<div id="specifications">
                         	'. $specifications .'<br>
-                        	Brand :'. $brand .'<br>
+                        	Brand :<span style="color: red;"><b> '. $brand .'</b></span><br>
                         	Type : '. $type .'
                         	</div>
                         	';
@@ -151,9 +151,9 @@
     			<div class="row container-fluid" id="product_ads_2">
 
     				<?php
-    				$stmt2 = $mysqli->prepare ("SELECT id, type, brand, img1, sellingprice  FROM product WHERE type = '$type' ORDER BY RAND() LIMIT 4");
+    				$stmt2 = $mysqli->prepare ("SELECT id, shortname, brand, img1, sellingprice  FROM product WHERE type = '$type' ORDER BY RAND() LIMIT 4");
     				if($stmt2->execute()) {
-    					$stmt2->bind_result($id, $type, $brand, $img1, $sellingprice);
+    					$stmt2->bind_result($id, $shortname, $brand, $img1, $sellingprice);
     					while ($stmt2->fetch()) {
     						$image = unserialize($img1);
     						foreach($image as $pic) {
@@ -163,7 +163,7 @@
     							<div class="img_box container">
     							<img src="loginpanel/'. $pic .'" class="d-block w-100 space" alt="...">
     							<div class="container">
-    							<h4>'. $brand .' '. $type .'</h4>
+    							<h4>'. $shortname .'</h4>
     							<p>Only ₹ '. $sellingprice.'</p>
     							</div>
     							</div>
@@ -180,9 +180,9 @@
     			<div class="row container-fluid" id="product_ads_2">
 
     				<?php
-    				$stmt2 = $mysqli->prepare ("SELECT id, type, brand, img1, sellingprice  FROM product WHERE catagory = '$category' ORDER BY RAND() LIMIT 4");
+    				$stmt2 = $mysqli->prepare ("SELECT id, shortname, brand, img1, sellingprice  FROM product WHERE catagory = '$category' ORDER BY RAND() LIMIT 4");
     				if($stmt2->execute()) {
-    					$stmt2->bind_result($id, $type, $brand, $img1, $sellingprice);
+    					$stmt2->bind_result($id, $shortname, $brand, $img1, $sellingprice);
     					while ($stmt2->fetch()) {
     						$image = unserialize($img1);
     						foreach($image as $pic) {
@@ -192,7 +192,7 @@
     							<div class="img_box container">
     							<img src="loginpanel/'. $pic .'" class="d-block w-100 space" alt="...">
     							<div class="container">
-    							<h4>'. $brand .' '. $type .'</h4>
+    							<h4>'. $shortname .'</h4>
     							<p>Only ₹ '. $sellingprice.'</p>
     							</div>
     							</div>

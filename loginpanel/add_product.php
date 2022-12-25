@@ -110,6 +110,7 @@ if ($_SESSION["type"] != 'admin') {
              <div class="modal-body">
                 <form method="POST" action="upload_product.php" enctype="multipart/form-data" id="resume_upload_portfolio" name="resume_upload_portfolio">
                     <input type="text" name="product_name" class="space form-control" placeholder="Product name"></input><br>
+                    <input type="text" name="short_name" class="space form-control" placeholder="Short Product name"></input><br>
                     <input type="text" name="selling_price" class="space form-control" placeholder="Selling price"></input><br>
                     <input type="text" name="orginal_price" class="space form-control" placeholder="Orginal price"></input><br>
 
