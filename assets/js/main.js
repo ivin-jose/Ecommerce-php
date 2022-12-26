@@ -11,13 +11,14 @@ $(document).ready(function () {
 		var username = $("#username_review_textarea").val();
 		var shortreview = $("#short_review_textarea").val();
 
-		if (username == '') {
-			alert("Please Enter User Name");
+		if (username == '' || shortreview == '') {
+			alert("Please Fill Completly");
 			return false;
 		}
-		if (shortreview == '') {
-			alert("Please Enter Something as review");
-			return false;
+		else{
+			alert("Review Added !");
 		}
+		
 	})
 });
+
