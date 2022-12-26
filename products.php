@@ -9,15 +9,11 @@ include_once 'loginpanel/session.php';
 		if (isset($_GET['category'])) {
 
 				$category = $_GET['category'];
-				
-				$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery FROM product WHERE catagory = '$category'");
-				if($stmt2->execute()) {
-					$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
-					}}
+			}
 	?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php echo'<title>'. $productname .'</title>' ?>
+	<?php echo'<title>'. $category .'</title>' ?>
 
 	<!-- Bootstrap 5 -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.4/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -46,12 +42,14 @@ include_once 'loginpanel/session.php';
 </head>
 <body>
 	<div>
+		<div id="sort_filter_div" class="container">
 		<div id="sorting_div">
 			<div class="dropdown container space">
 				<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
 					Sort
 				</button>
 				<ul class="dropdown-menu">
+					<li class="container filter_heading"><b>Price</b></li>
 					<?php
 					echo '
 					<li><a class="dropdown-item" href="sorting.php?value=1&&category='. $category.'">price low-> high</a></li>
@@ -61,13 +59,42 @@ include_once 'loginpanel/session.php';
 				</ul>
 			</div>
 		</div>
+			<div id="filter_div">
+				<div class="dropdown container space">
+					<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+						Filter
+					</button>
+					<ul class="dropdown-menu">
+						<li class="container filter_heading"><b>Brands</b></li>
 
-		<div id="filter_div">
-			
-		</div>
+						<?php
+						$stmt3 = $mysqli->prepare ("SELECT DISTINCT brand FROM product WHERE catagory = '$category' ORDER BY brand ASC");
+						if($stmt3->execute()) {
+							$stmt3->bind_result($brand);
+						}
+						while ($stmt3->fetch()) {
+								echo '
+								<li><a class="dropdown-item" href="filter.php?brand='. $brand .'&&search_word='. $category .'">'. $brand.'</a></li>
+								';
+							}
+							?>
+						</ul>
+				</div>
+			</div>
+	</div>
+
 		<div class="row container row_style space">
 			
 			<?php
+			if (isset($_GET['category'])) {
+
+				$category = $_GET['category'];
+				
+				$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery FROM product WHERE catagory = '$category'");
+				if($stmt2->execute()) {
+					$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
+					}}
+
 			while ($stmt2->fetch()) {
 				$image = unserialize($img1);
 				foreach($image as $pic) {

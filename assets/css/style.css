@@ -268,3 +268,13 @@ height: 30vh;
 		border-radius: 10px;
 	}
 
+#sort_filter_div{
+	display: flex;
+}
+
+/*Filter and SORTING */
+
+.filter_heading{
+	border-bottom: 2px solid red;
+}
+

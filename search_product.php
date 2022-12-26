@@ -32,25 +32,51 @@
 </head>
 <body>
 	<div>
-		<div id="sorting_div">
-			<div class="dropdown container space">
-				<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-					Sort
-				</button>
-				<ul class="dropdown-menu">
-			     
-                    <?php
-                    $searching_element = $_REQUEST['searching_element'];
-					  	echo '
-					  		<li><a class="dropdown-item" href="search_sorting.php?value=1&&search_word='. $searching_element.'">price low-> high</a></li>
-							<li><a class="dropdown-item" href="search_sorting.php?value=0&&search_word='. $searching_element.'">price high-> low</a></li>'
-					?>
-				</ul>
-			</div>
-		</div>
+		<div id="sort_filter_div" class="container">
+			<div id="sorting_div">
+				<div class="dropdown container space">
+					<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+						Sort
+					</button>
+					<ul class="dropdown-menu">
+						<li class="container filter_heading"><b>Price</b></li>
 
-		<div id="filter_div">
-			
+						<?php
+						$searching_element = $_REQUEST['searching_element'];
+						echo '
+						<li><a class="dropdown-item" href="search_sorting.php?value=1&&search_word='. $searching_element.'">price low-> high</a></li>
+						<li><a class="dropdown-item" href="search_sorting.php?value=0&&search_word='. $searching_element.'">price high-> low</a></li>'
+						?>
+					</ul>
+				</div>
+			</div>
+
+			<div id="filter_div">
+				<div class="dropdown container space">
+					<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+						Filter
+					</button>
+					<ul class="dropdown-menu">
+						<li class="container filter_heading"><b>Brands</b></li>
+
+						<?php
+						$searching_element = $_REQUEST['searching_element'];
+						$search = ('%'. $searching_element. '%');
+						$stmt2 = $mysqli->prepare ("SELECT DISTINCT brand  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' ORDER BY brand ASC");
+
+						if($stmt2->execute()) {
+						$stmt2->bind_result($brand);
+					    }
+					    while ($stmt2->fetch()) {
+
+						echo '
+						<li><a class="dropdown-item" href="search_filter.php?brand='. $brand .'&&search_word='. $searching_element.'">'. $brand.'</a></li>
+						';
+					}
+						?>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<div class="row container row_style space">
 			<?php

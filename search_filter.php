@@ -5,20 +5,15 @@ include_once 'loginpanel/session.php';
 <!DOCTYPE html>
 <html>
 <head>
-
 	<?php
-		if (isset($_GET['value'])) {
-
-				$value = $_GET['value'];
-				// $searching_element = $_GET['search_word'];
-				$searching_element = filter_input(INPUT_GET, 'search_word' ,FILTER_SANITIZE_STRING);}
+		if (isset($_GET['search_word'])) {
+				$category = $_GET['search_word'];
+				$brand = $_GET['brand'];
+			}
 	?>
-	
-				
-			
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php echo'<title>'. $searching_element .'</title>' ?>
+	<?php echo'<title>'. $brand .'</title>' ?>
 
 	<!-- Bootstrap 5 -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.4/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -57,14 +52,14 @@ include_once 'loginpanel/session.php';
 					<li class="container filter_heading"><b>Price</b></li>
 					<?php
 					echo '
-					<li><a class="dropdown-item" href="search_sorting.php?value=1&&search_word='. $searching_element.'">price low-> high</a></li>
-					<li><a class="dropdown-item" href="search_sorting.php?value=0&&search_word='. $searching_element.'">price high-> low</a></li>
+					<li><a class="dropdown-item" href="filter_sorting.php?value=1&&category='. $brand.'">price low-> high</a></li>
+					<li><a class="dropdown-item" href="filter_sorting.php?value=0&&category='. $brand.'">price high-> low</a></li>
 					';
 					?>
 				</ul>
 			</div>
 		</div>
-					<div id="filter_div">
+			<div id="filter_div">
 				<div class="dropdown container space">
 					<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
 						Filter
@@ -73,55 +68,34 @@ include_once 'loginpanel/session.php';
 						<li class="container filter_heading"><b>Brands</b></li>
 
 						<?php
-						$searching_element = $_GET['search_word'];
-						$search = ('%'. $searching_element. '%');
-
-						$stmt3 = $mysqli->prepare ("SELECT brand  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' ORDER BY sellingprice ASC");
-						if ($stmt3->execute()) {
+						$stmt3 = $mysqli->prepare ("SELECT DISTINCT brand FROM product WHERE catagory = '$category' ORDER BY brand ASC");
+						if($stmt3->execute()) {
 							$stmt3->bind_result($brand);
 						}
 						while ($stmt3->fetch()) {
-							echo '
-								<li><a class="dropdown-item" href="search_filter.php?brand='. $brand .'&&search_word='. $searching_element .'">'. $brand.'</a></li>
+								echo '
+								<li><a class="dropdown-item" href="filter.php?brand='. $brand .'&&search_word='. $category .'">'. $brand.'</a></li>
 								';
-						}
-
-						?>
-
-						
-					</ul>
+							}
+							?>
+						</ul>
 				</div>
 			</div>
-		</div>
+	</div>
 
-		<div id="filter_div">
-			
-		</div>
 		<div class="row container row_style space">
 			
 			<?php
-		if (isset($_GET['value'])) {
+			if (isset($_GET['search_word'])) {
 
-				$value = $_GET['value'];
-				// $searching_element = $_GET['search_word'];
-				$searching_element = filter_input(INPUT_GET, 'search_word' ,FILTER_SANITIZE_STRING);
-				$search = ('%'. $searching_element. '%');
-
-				if ($value == 1) {
-					$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' ORDER BY sellingprice ASC");
-
-					if($stmt2->execute()) {
-						$stmt2->bind_result($id,$catagory, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
-					}}
-
-				if ($value == 0) {
-					$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' ORDER BY sellingprice DESC");
-					if($stmt2->execute()) {
-						$stmt2->bind_result($id, $category, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
-					}}
-				}
-				$value = '';	
+				$category = $_GET['search_word'];
+				$brand = $_GET['brand'];
 				
+				$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery FROM product WHERE catagory = '$category' OR brand = '$brand'");
+				if($stmt2->execute()) {
+					$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
+					}}
+
 			while ($stmt2->fetch()) {
 				$image = unserialize($img1);
 				foreach($image as $pic) {

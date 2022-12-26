@@ -4,6 +4,7 @@ window.addEventListener("load", function(){
 	loader.style.display = "none";
 });
 
+// Review form validation
 
 $(document).ready(function () {
 	$("#review_submit_btn").click(function(){
