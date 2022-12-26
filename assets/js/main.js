@@ -19,6 +19,9 @@ $(document).ready(function () {
 			alert("Review Added !");
 		}
 		
+	});
+	$("#wishlist_btn").click(function() {
+		alert("Product Added");
 	})
 });
 

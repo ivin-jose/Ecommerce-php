@@ -13,7 +13,6 @@ if ($product_id != '') {
     $stmt2->bind_param('ssiis', $product_id, $image, $sellingprice, $originalprice, $productname);
     $stmt2->execute();
     header("Location: product_show.php?id=$product_id");
-    //echo $product_id;
 }
 else{
 	//header("Location: product_show.php?id=$product_id");
