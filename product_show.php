@@ -124,7 +124,7 @@
     		'. $date .'
     		</div>
     		</div>
-    		</div>
+    		
     		';
     	}
     }
@@ -133,11 +133,12 @@
 
     		
 
-    		<div class="space">
+    		<div class="container space">
     			<div><h3>Write a Review</h3></div>
     			<?php
+                $ids = $_GET['id'];
     			echo '<form action="adding_review.php" method="POST">
-    			<input type="hidden" name="p_id" value="'. $id .'" />
+    			<input type="hidden" name="p_id" value="'. $ids .'" />
     			<input type="textarea" name="username" id="username_review_textarea" placeholder="Username(must)" class="review_textarea"/>
     			<input type="textarea" name="short_review" id="short_review_textarea" placeholder="Short Review(must)" class="review_textarea"/>
     			<textarea type="textarea" name="long_review" id="long_review_textarea" placeholder="Long Summery(Optional)" class="review_textarea"></textarea><br>

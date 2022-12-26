@@ -15,6 +15,7 @@
 		$insrt = $mysqli->prepare("INSERT INTO review (product_id, username, short_review, long_review, date) VALUES(?, ?, ?, ?, ?)");
 		$insrt->bind_param('sssss', $product_id, $username, $short_review, $long_review, $date);
 		 $insrt->execute();
+		 //echo $product_id;
 		 header('Location: product_show.php?id='. $product_id .'');
 	}
 	else{
