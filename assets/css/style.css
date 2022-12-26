@@ -278,3 +278,7 @@ height: 30vh;
 	border-bottom: 2px solid red;
 }
 
+.review_card_footer{
+	text-align: end;
+}
+

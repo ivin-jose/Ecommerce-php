@@ -106,6 +106,7 @@
     <div class="space">
     	<h3 class="space">Reviews</h3>
     <?php
+    $p_id = $_GET['id'];
     $stmt2 = $mysqli->prepare ("SELECT id, username, short_review, long_review, date  FROM review WHERE product_id = '$id'");
     if($stmt2->execute()) {
     	$stmt2->bind_result($id, $username, $short_review, $long_review, $date);
@@ -120,8 +121,13 @@
     		<h5 class="card-title">'. $short_review .'</h5>
     		<p class="card-text">'. $long_review .'</p>
     		</div>
-    		<div class="card-footer text-muted">
-    		'. $date .'
+    		<div class="card-footer text-muted row_style">
+    		<div>
+            '. $date .'
+            </div>
+            <div class="container review_card_footer">
+            <a class="btn btn-primary main_theme" href="remove_review.php?id='. $id .'&&p_id='.$p_id.'">Remove</a>
+            </div>
     		</div>
     		</div>
     		
