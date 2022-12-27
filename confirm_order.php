@@ -80,7 +80,7 @@
         <label for="validationDefault03" class="form-label label_color">Phone</label>
         <input type="text" name="phone" class="form-control space" value="'. $phone .'">
         <label for="validationDefault03" class="form-label label_color">Price</label>
-        <input type="text" name="firstname" class="form-control space" value="₹ '. $sellingprice .'" readonly>
+        <input type="text" name="sellingprice" class="form-control space" value="₹ '. $sellingprice .'" readonly>
         <label for="validationDefault03" class="form-label label_color">Payment method</label>
         <input type="text" name="paymentmethod" class="form-control space" value="Cash On Delivery(COD)" readonly>
 
@@ -89,6 +89,9 @@
         <input type="hidden" name="date" class="form-control space" value="'. $date .'" readonly>
         <input type="hidden" name="pincode" class="form-control space" value="'. $pincode .'" readonly>
         <input type="hidden" name="email" class="form-control space" value="'. $email .'" readonly>
+        <input type="hidden" name="image" class="form-control space" value="'. $pic .'" readonly>
+        <input type="hidden" name="price" class="form-control space" value="'. $sellingprice .'" readonly>
+        <input type="hidden" name="productname" class="form-control space" value="'. $productname .'" readonly>
 
 
         <input type="submit" class="btn btn-primary main_theme space" value="Confirm Order">

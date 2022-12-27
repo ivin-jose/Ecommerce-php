@@ -285,3 +285,65 @@ height: 30vh;
 	text-align: end;
 }
 
+/*--------------------------------------------------------------
+# Order details sow
+--------------------------------------------------------------*/
+.order .order-title {
+  font-size: 26px;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #222222;
+}
+
+.order .order-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid #34b7a7;
+  position: relative;
+}
+
+.order .order-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #1d685f;
+  margin-bottom: 10px;
+}
+
+.order .order-item h5 {
+  font-size: 16px;
+  background: #effbf9;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #34b7a7;
+}
+
+.order .order-item ul {
+  padding-left: 20px;
+}
+
+.order .order-item ul li {
+  padding-bottom: 10px;
+}
+
+.order .order-item:last-child {
+  padding-bottom: 0;
+}
+
+.order .order-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #fff;
+  border: 2px solid #34b7a7;
+}
+
+

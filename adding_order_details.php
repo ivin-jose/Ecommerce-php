@@ -10,10 +10,13 @@ include_once 'loginpanel/db-connect.php';
     $p_id = filter_input(INPUT_POST, 'p_id', FILTER_SANITIZE_STRING);
     $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
     $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
+    $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
+    $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
+    $productname = filter_input(INPUT_POST, 'productname', FILTER_SANITIZE_STRING);
 
     if ($firstname != '') {
-        $insrt = $mysqli->prepare("INSERT INTO order_details (product_id, firstname, lastname, email, address, pincode, phone, date) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
-        $insrt->bind_param('isssssss', $p_id, $firstname, $lastname, $email, $address, $pincode, $phone, $date);
+        $insrt = $mysqli->prepare("INSERT INTO order_details (product_id, firstname, lastname, email, address, pincode, phone, date, image, price, productname) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $insrt->bind_param('issssssssss', $p_id, $firstname, $lastname, $email, $address, $pincode, $phone, $date, $image, $price, $productname);
          $insrt->execute();
     }
     else{
