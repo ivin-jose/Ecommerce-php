@@ -17,6 +17,7 @@
 <body>
 	<?php
 		include 'header.php';
+    $p_id = $_GET['id'];
 	?>
 
 <div class="container space">
@@ -43,6 +44,14 @@
   <div class="col-md-3">
     <label for="validationDefault05" class="form-label">Pin code</label>
     <input type="text" class="form-control" id="validationDefault05" required name="pincode">
+    <?php
+    echo ' <input type="hidden" class="form-control" id="validationDefault05" required name="p_id" value="'. $p_id .'">';
+    ?>
+   
+  </div>
+  <div class="col-md-6">
+    <label for="validationDefault03" class="form-label">Phone</label>
+    <input type="text" class="form-control" id="validationDefault03" required name="phone">
   </div>
   <div class="col-12">
     <div class="form-check">

@@ -44,6 +44,9 @@ a{
 .extradarkbg{
 	color: var(--extradarkbg);
 }
+.label_color{
+	color: #4550fb;
+}
 
 :root{
 	--extradarkbg :#004846;
