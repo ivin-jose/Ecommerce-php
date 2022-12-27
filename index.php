@@ -70,6 +70,101 @@
 		</div>
 	</div>
 
+	<!-- Ordered product ads -->
+
+	<div>
+		<div class="row ">
+				<?php
+			$stmt2 = $mysqli->prepare ("SELECT id, product_id, image, productname, price FROM order_details ORDER BY RAND() LIMIT 1");
+			if($stmt2->execute()) {
+				$stmt2->bind_result($o_id, $product_id, $image, $productname, $sellingprice);
+				while ($stmt2->fetch()) {
+			    {
+						echo '
+						<div class="col-md-12 col-lg-12 container space">
+						<a href="order_show.php?id='. $o_id .'">
+						<div class="img_box container order_ad">
+						<img src="loginpanel/'. $image .'" class="d-block w-100 space" alt="...">
+						<div class="container">
+						<h5 style="color: #1c80d8;"><span>Your </span>'. $productname .'</h5>
+						<h4>is on the way</h4>
+						<p>Only ₹ '. $sellingprice.'</p>
+						</div>
+						</div>
+						</a>
+						</div>
+						';
+					}
+				}
+			}
+			?>
+		</div>
+	</div>
+
+	<!-- products ads div -->
+
+	<div id="product_ads_2">
+		<div class="row container-fluid" id="product_ads_2">
+			<?php
+			$stmt2 = $mysqli->prepare ("SELECT id, shortname, brand, img1, sellingprice  FROM product ORDER BY RAND() LIMIT 4");
+			if($stmt2->execute()) {
+				$stmt2->bind_result($id, $shortname, $brand, $img1, $sellingprice);
+				while ($stmt2->fetch()) {
+					$image = unserialize($img1);
+					foreach($image as $pic) {
+						echo '
+						<div class="col-md-3 col-lg-3 container space">
+						<a href="product_show.php?id='. $id .'">
+						<div class="img_box container">
+						<img src="loginpanel/'. $pic .'" class="d-block w-100 space" alt="...">
+						<div class="container">
+						<h5>'. $shortname .'</h5>
+						<p>Only ₹ '. $sellingprice.'</p>
+						</div>
+						</div>
+						</a>
+						</div>
+						';
+					}
+				}
+			}
+			?>
+		</div>
+	</div>
+
+		<!-- Cart product ads -->
+
+	<div>
+		<div class="row ">
+				<?php
+			$stmt2 = $mysqli->prepare ("SELECT id, product_id, image, productname, sellingprice FROM cart ORDER BY RAND() LIMIT 1");
+			if($stmt2->execute()) {
+				$stmt2->bind_result($o_id, $cart_product_id, $cart_image, $cartproductname, $sellingprice);
+				while ($stmt2->fetch()) {
+			    {
+						echo '
+						<div class="col-md-12 col-lg-12 container space">
+						<a href="cart.php">
+						<div class="img_box container order_ad">
+						<img src="loginpanel/'. $cart_image .'" class="d-block w-100 space" alt="...">
+						<div class="container">
+						<h5 style="color: #1c80d8;">'. $cartproductname .'</h5>
+						<h4><b>IS WAITING IN YOUR CART</b></h4>
+						<p>Only ₹ '. $sellingprice.'</p>
+						</div>
+						</div>
+						</a>
+						</div>
+						';
+					}
+				}
+			}
+			?>
+		</div>
+	</div>
+
+
+
 	<!-- brand logos -->
 
 	<div id="brandlogos space">

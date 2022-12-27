@@ -346,4 +346,11 @@ height: 30vh;
   border: 2px solid #34b7a7;
 }
 
+.order_ad{
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30vh;
+}
+
 

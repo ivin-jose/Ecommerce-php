@@ -26,9 +26,9 @@
 
 			$o_id = $_GET['id'];
 
-			$stmt2 = $mysqli->prepare ("SELECT id, productname, image, price, firstname, address, email, phone, date FROM order_details WHERE id='$o_id'");
+			$stmt2 = $mysqli->prepare ("SELECT id, product_id, productname, image, price, firstname, address, email, phone, date FROM order_details WHERE id='$o_id'");
 			if($stmt2->execute()) {
-				$stmt2->bind_result($o_id, $productname, $image, $sellingprice, $firstname, $address, $email, $phone, $date);
+				$stmt2->bind_result($o_id, $product_id, $productname, $image, $sellingprice, $firstname, $address, $email, $phone, $date);
 
 				$tommarow_date = date("M-d-Y", strtotime("+1 day"));
 				$now_date = date("M d Y");
@@ -39,7 +39,7 @@
 					{
 						echo '
 						<div class="col-md-3 col-lg-3 container space">
-						<a href="order_show.php?id='. $o_id .'">
+						<a href="product_show.php?id='. $product_id .'">
 						<div class="img_box container">
 						<img src="loginpanel/'. $image .'" class="d-block w-100 container" alt="...">
 						<div class="container">
