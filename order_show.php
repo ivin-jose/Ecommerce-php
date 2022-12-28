@@ -87,9 +87,6 @@
             <p><em>Cancel your product</em></p>
             </div>
             </section>
-
-
-
 						';
 					}}}
 					?>
