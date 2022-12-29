@@ -92,12 +92,12 @@ include_once 'loginpanel/session.php';
 				$category = $_GET['category'];
 
 				if ($value == 1) {
-					$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery FROM product WHERE catagory = '$category' ORDER BY sellingprice ASC");
+					$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery FROM product WHERE catagory = '$category' ORDER BY ABS(sellingprice)");
 					if($stmt2->execute()) {
 						$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
 					}}
 				if ($value == 0) {
-					$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery FROM product WHERE catagory = '$category' ORDER BY sellingprice DESC");
+					$stmt2 = $mysqli->prepare ("SELECT id, productname, brand, img1, sellingprice, orginalprice, short_summery FROM product WHERE catagory = '$category' ORDER BY ABS(sellingprice) DESC");
 					if($stmt2->execute()) {
 						$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
 					}}

@@ -108,14 +108,14 @@ include_once 'loginpanel/session.php';
 				$search = ('%'. $searching_element. '%');
 
 				if ($value == 1) {
-					$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' ORDER BY sellingprice ASC");
+					$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' ORDER BY ABS(sellingprice)");
 
 					if($stmt2->execute()) {
 						$stmt2->bind_result($id,$catagory, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
 					}}
 
 				if ($value == 0) {
-					$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' ORDER BY sellingprice DESC");
+					$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' ORDER BY ABS(sellingprice) DESC");
 					if($stmt2->execute()) {
 						$stmt2->bind_result($id, $category, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
 					}}
