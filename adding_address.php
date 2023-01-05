@@ -8,10 +8,16 @@ include_once 'loginpanel/db-connect.php';
     $district = filter_input(INPUT_POST, 'district', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
     $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
-    $pincode = filter_input(INPUT_POST, 'pincode', FILTER_SANITIZE_STRING);
+    $pincode = filter_input(INPUT_POST, 'pin', FILTER_SANITIZE_STRING);
     $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
     
+    if ($name != ''){
         $insrt = $mysqli->prepare("UPDATE useraddress SET name = ?, house = ?, po = ?, district = ?, pin = ?, phone = ?, email = ? WHERE id = 1");
         $insrt->bind_param('sssssss', $name, $house, $po, $district, $pincode, $phone, $email);
          $insrt->execute();
+         header('Location: profile.php');
+     }
+     else{
+        header('Location: update_address.php')
+     }
   ?>
