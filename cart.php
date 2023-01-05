@@ -43,6 +43,7 @@
 			</div>
 			<h2>Your cart</h2>
 		</div>
+		<hr class="borderline">
 
 		<div>
 			<div class="container">

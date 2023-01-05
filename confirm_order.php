@@ -16,15 +16,8 @@
 <body>
 	<?php
 		include 'header.php';
-
-    $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
-    $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-    $pincode = filter_input(INPUT_POST, 'pincode', FILTER_SANITIZE_STRING);
-    $p_id = filter_input(INPUT_POST, 'p_id', FILTER_SANITIZE_STRING);
-    $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
-    $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
     $date = date('M d Y');
+    $p_id = $_REQUEST['id'];
   ?>
 
       <div class="row container row_style space">
@@ -70,25 +63,46 @@
         <h1 class="darkbg">Order Details</h1>
       </center>
       <?php
+         $stmt2 = $mysqli->prepare ("SELECT id, name, house, po, district, pin, phone, email FROM useraddress LIMIT 1");
+        if($stmt2->execute()) {
+          $stmt2->bind_result($id, $name, $house, $po, $district, $pin, $phone, $email);
+          }
+
+      while ($stmt2->fetch()) {
+        $image = unserialize($img1);
+        foreach($image as $pic) {
+          echo '
+          <div class="col-md-6">
+          <h2>Your Address</h2>
+          '. $name .',<br>
+          '. $house .'(ho),<br>
+          '. $po .'<br>
+          '. $district .'<br>
+          PIN :'. $pin .'<br>
+          '. $phone .'<br>
+          '. $email .'<br>
+          <a href="update_address.php" class="btn btn-primary main_theme space">Change Address</a>
+          </div>';
+
+        }}
+      ?>
+      <?php
         echo '
         <div class="col-md-6 col-lg-6 container space">
         <form action="adding_order_details.php" method="POST">
-        <label for="validationDefault03" class="form-label label_color">Name</label>
-        <input type="text" name="firstname" class="form-control space" value="'. $firstname .'">
-        <label for="validationDefault03" class="form-label label_color">Your Address</label>
-        <input type="text" name="address" class="form-control space" value="'. $address .'">
-        <label for="validationDefault03" class="form-label label_color">Phone</label>
-        <input type="text" name="phone" class="form-control space" value="'. $phone .'">
+        <input type="hidden" name="firstname" class="form-control space" value="'.$name.'">
+        <input type="hidden" name="address" class="form-control space" value="'.$house .',<br> '. $po.'<br> '. $district.'">
+        <input type="hidden" name="phone" class="form-control space" value="'.$phone.'">
         <label for="validationDefault03" class="form-label label_color">Price</label>
         <input type="text" name="sellingprice" class="form-control space" value="₹ '. $sellingprice .'" readonly>
         <label for="validationDefault03" class="form-label label_color">Payment method</label>
         <input type="text" name="paymentmethod" class="form-control space" value="Cash On Delivery(COD)" readonly>
 
-        <input type="hidden" name="lastname" class="form-control space" value="'. $lastname .'" readonly>
+        <input type="hidden" name="lastname" class="form-control space" value="" readonly>
         <input type="hidden" name="p_id" class="form-control space" value="'. $p_id .'" readonly>
         <input type="hidden" name="date" class="form-control space" value="'. $date .'" readonly>
-        <input type="hidden" name="pincode" class="form-control space" value="'. $pincode .'" readonly>
-        <input type="hidden" name="email" class="form-control space" value="'. $email .'" readonly>
+        <input type="hidden" name="pincode" class="form-control space" value="" readonly>
+        <input type="hidden" name="email" class="form-control space" value="" readonly>
         <input type="hidden" name="image" class="form-control space" value="'. $pic .'" readonly>
         <input type="hidden" name="price" class="form-control space" value="'. $sellingprice .'" readonly>
         <input type="hidden" name="productname" class="form-control space" value="'. $productname .'" readonly>

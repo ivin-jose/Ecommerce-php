@@ -14,16 +14,10 @@ include_once 'loginpanel/db-connect.php';
     $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
     $productname = filter_input(INPUT_POST, 'productname', FILTER_SANITIZE_STRING);
 
-    if ($firstname != '') {
+    
         $insrt = $mysqli->prepare("INSERT INTO order_details (product_id, firstname, lastname, email, address, pincode, phone, date, image, price, productname) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $insrt->bind_param('issssssssss', $p_id, $firstname, $lastname, $email, $address, $pincode, $phone, $date, $image, $price, $productname);
          $insrt->execute();
-    }
-    else{
-        header('Location: product_show.php?id='. $p_id .'');
-    }
-
-
   ?>
   <!DOCTYPE html>
 <html>

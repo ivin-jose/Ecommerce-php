@@ -36,6 +36,7 @@
 			</div>
 			<h2>Your Wishlist</h2>
 		</div>
+		<hr class="borderline">
 
 		<div>
 			<div class="container">

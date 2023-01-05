@@ -353,4 +353,15 @@ height: 30vh;
     height: 30vh;
 }
 
+#userdropdown{
+	margin-right: 100px;
+}
+
+.borderline{
+	width: 100%;
+	height: 2px;
+	background: red;
+}
+
+
 

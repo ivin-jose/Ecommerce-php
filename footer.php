@@ -106,6 +106,9 @@
           <p>
             <a href="products.php?category=HomeAplliences" class="">Home Appliences</a>
           </p>
+          <p>
+            <a href="products.php?category=Accesories" class="">Accesories</a>
+          </p>
         </div>
         <!-- Grid column -->
 
@@ -123,6 +126,9 @@
           </p>
           <p>
             <a href="order.php" class="">My orders</a>
+          </p>
+          <p>
+            <a href="profile.php" class="">Your profile</a>
           </p>
         </div>
         <!-- Grid column -->

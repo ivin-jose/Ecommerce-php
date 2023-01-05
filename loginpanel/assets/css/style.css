@@ -51,6 +51,7 @@ a, a:hover, a:focus{
 	height: 10vh;
 	width: 100%;
 	background: var(--extradarkbg);
+	position: fixed;
 
 }
 #dashboard{
@@ -60,13 +61,9 @@ a, a:hover, a:focus{
 	width: 100%;
 	color: var(--white);
 }
-#sidebar {
-    background: var(--darkbg);
-}
 #sidebar_div{
 	width: 17%;
 	height: 100vh;
-    background: var(--darkbg);
 }
 .li_color{
 	color: var(--white);
