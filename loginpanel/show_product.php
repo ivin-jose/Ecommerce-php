@@ -36,70 +36,42 @@ if ($_SESSION["type"] != 'admin') {
 
 <body>
     <main>
-        <section>
-            <header id="loginpanel_header">
-                <div class="container">
-                    <div id="dashboard">
-                        <span><h3>DASHBOARD</h3></span>
-                        <div class="top-nav notification-row">
-                            <!-- notificatoin dropdown start-->
-                            <ul class="nav pull-right top-menu">
-                                <!-- alert notification end-->
-                                <!-- user login dropdown start-->
-                                <li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                        <span class="username">ivinnjose</span>
-                                        <b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu extended logout">
-                                        <div class="log-arrow-up"></div>
-                           <!--  <li class="eborder-top">
-                                <a href="#"><i class="icon_profile"></i> My Profile</a>
-                            </li> -->
-                            <li>
-                                <a href="logout.php"><i class="icon_key_alt"></i>Log Out</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- user login dropdown end -->
-                </ul>
-                <!-- notificatoin dropdown end-->
-            </div>
-        </div>
-    </div>
-</header>
-</section>
-<div class="row">
-    <div class="col-lg-6 col-md-6" id="sidebar_div">
-        <aside>
-            <div id="sidebar"  class="nav-collapse ">
-                <!-- sidebar menu start-->
-                <ul class="">
-                    <li class="dir">
-                        <a class="" href="manage_admins.php">
-                            <i class="icon_house_alt"></i>
-                            <span class="li_color">Manage Admins</span>
-                        </a>
-                    </li>
-                    <li class="dir">
-                        <a class="" href="add_product.php">
-                            <i class="icon_house_alt"></i>
-                            <span class="li_color">Add Product</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </aside>    
-    </div>
-    <div class="col-lg-6 col-md-6">
+       <?php
+    include 'includes/header.php';
+    ?>
 
-        <?php
+    <div class="row">
+        <div class="col-lg-6" style="width: 20%;">
+         <!--sidebar start-->
+         <aside>
+          <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+            <li class="">
+              <a class="" href="main.php">
+                  <i class="icon_house_alt"></i>
+                  <span>Manage Admins</span>
+              </a>
+           </li>
+          <li class="">
+            <a class="" href="add_product.php">
+              <i class="icon_house_alt"></i>
+              <span>Products</span>
+            </a>
+          </li>
+         </ul>
+  <!-- sidebar menu end-->
+     </div>
+    </aside>
+</div>
+    <div class="col-lg-6 col-md-6" style="width: 80%; margin-top: 70px;">
+                <?php
 
         $id = $_GET['id'];
 
-        $stmt2 = $mysqli->prepare ("SELECT id, productname, specifications, sellingprice, orginalprice, short_summery, long_summery, brand, img1, img2, img3  FROM product WHERE id = '$id'");
+        $stmt2 = $mysqli->prepare ("SELECT id, productname, specifications, sellingprice, orginalprice, short_summery, long_summery, brand, img1, img2, img3, searchingkeywords, shortname, type, catagory  FROM product WHERE id = '$id'");
         if($stmt2->execute()) {
-            $stmt2->bind_result($id, $productname, $specifications, $selling_price, $orginal_price, $short_summery, $long_summery, $brand, $img1, $img2, $img3);
+            $stmt2->bind_result($id, $productname, $specifications, $selling_price, $orginal_price, $short_summery, $long_summery, $brand, $img1, $img2, $img3, $searchingkeywords, $shortname, $type, $category);
             while ($stmt2->fetch()) {
                 $image1 = unserialize($img1);
                 $image3 = unserialize($img3);
@@ -112,13 +84,13 @@ if ($_SESSION["type"] != 'admin') {
                             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                             <div class="carousel-item active">
-                            <img src="'. $pic1 .'" class="d-block w-100" alt="fff">
+                            <img src="'. $pic1 .'" class="d-block w-100 loginpanel_img" alt="fff">
                             </div>
                             <div class="carousel-item">
-                            <img src="'. $pic2 .'" class="d-block w-100" alt="...">
+                            <img src="'. $pic2 .'" class="loginpanel_img d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                            <img src="'. $pic3 .'" class="d-block w-100" alt="...">
+                            <img src="'. $pic3 .'" class="loginpanel_img d-block w-100" alt="...">
                             </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -157,17 +129,25 @@ if ($_SESSION["type"] != 'admin') {
                             '. $long_summery .'
                             <br>
                             </div>
-                            <div class="container price_div space">
-                            <div id="">
-                            <a class="cart_btns main_theme btn btn-primary adding_cart_btn" href="adding_cart.php?id=2">Add to cart</a>
-                            </div>
-                            <div id="">
-                            <a class="order_btn btn btn-primary side_space" href="place_order.php?id=2">PLACE ORDER</a>
-                            </div>
-                            </div>
                             <div id="specifications">
                             '. $specifications .'
-                            </div>';
+                            </div>
+                            <div id="specifications">
+                            <b>SEARCH WORDS</b> : '. $searchingkeywords .'
+                            </div>
+                            <div id="specifications">
+                            <b>SHORT NAME</b> : '. $shortname .'
+                            </div>
+                            <div id="specifications">
+                            <b>TYPE</b> : '. $type .'
+                            </div>
+                            <div id="specifications">
+                            <b>CATEGORY</b> : '. $category .'
+                            </div>
+                            <a href="delete_product.php?id='. $id .'" class="btn btn-primary main_theme space side_space" style="color: red;">Rmove Product</a>
+                            <a href="edit_product.php?id='. $id .'" class="btn btn-primary main_theme space side_space">Update Product</a>
+                            
+                            ';
                         }
                     }
                 }
@@ -175,9 +155,9 @@ if ($_SESSION["type"] != 'admin') {
         }
         ?>
         
+       
     </div>
-</main>
-</div>
+
 </div>
 </main>
 </body>

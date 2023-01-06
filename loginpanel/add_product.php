@@ -36,65 +36,40 @@ if ($_SESSION["type"] != 'admin') {
 
 <body>
     <main>
-        <section>
-            <header id="loginpanel_header">
-                <div class="container">
-                    <div id="dashboard">
-                        <span><h3>DASHBOARD</h3></span>
-                        <div class="top-nav notification-row">
-                            <!-- notificatoin dropdown start-->
-                            <ul class="nav pull-right top-menu">
-                                <!-- alert notification end-->
-                                <!-- user login dropdown start-->
-                                <li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                        <span class="username">ivinnjose</span>
-                                        <b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu extended logout">
-                                        <div class="log-arrow-up"></div>
-                           <!--  <li class="eborder-top">
-                                <a href="#"><i class="icon_profile"></i> My Profile</a>
-                            </li> -->
-                            <li>
-                                <a href="logout.php"><i class="icon_key_alt"></i>Log Out</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- user login dropdown end -->
-                </ul>
-                <!-- notificatoin dropdown end-->
-            </div>
-        </div>
-    </div>
-</header>
-</section>
-<div class="row">
-    <div class="col-lg-6 col-md-6" id="sidebar_div">
-        <body id="body-pd">
-    <header class="header" id="header">
-        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-        <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
-    </header>
-    <div class="l-navbar" id="nav-bar">
-        <nav class="nav">
-            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">BBBootstrap</span> </a>
-                <div class="nav_list"> <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> <a href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Users</span> </a> <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Messages</span> </a> <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a> <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a> </div>
-            </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
-        </nav>
-    </div>
-    <!--Container Main start-->
-    <div class="height-100 bg-light">
-        <h4>Main Components</h4>
-    </div>
-    <!--Container Main end-->  
-    </div>
-    <div class="col-lg-6 col-md-6">
-        <div class="container"><br>
+       <?php
+    include 'includes/header.php';
+    ?>
+
+    <div class="row">
+        <div class="col-lg-6" style="width: 20%;">
+         <!--sidebar start-->
+         <aside>
+          <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+            <li class="">
+              <a class="" href="main.php">
+                  <i class="icon_house_alt"></i>
+                  <span>Manage Admins</span>
+              </a>
+           </li>
+          <li class="">
+            <a class="" href="add_product.php">
+              <i class="icon_house_alt"></i>
+              <span>Products</span>
+            </a>
+          </li>
+         </ul>
+  <!-- sidebar menu end-->
+     </div>
+    </aside>
+</div>
+    <div class="col-lg-6 col-md-6" style="width: 80%;">
+        <div class="container" id="productnamediv"><br>
             <h3>ADD PRODUCTS</h3>
         </div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn btn-primary main_theme space" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" class="btn btn-primary btn btn-primary main_theme space space" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
          ADD PRODUCT
      </button>
 
@@ -135,24 +110,28 @@ if ($_SESSION["type"] != 'admin') {
         </div>
     </div>
 </div><br><br>
-<?php
-$stmt2 = $mysqli->prepare ("SELECT id, productname, img1  FROM product");
-                if($stmt2->execute()) {
-                    $stmt2->bind_result($id, $productname, $img1);
-                    while ($stmt2->fetch()) {
-                        $image = unserialize($img1);
-                        foreach($image as $pic) {
-                            echo '
-                            <h5>'. $productname .'</h5>
-                            <a href="show_product.php?id='. $id .'">
-                            <img src="'. $pic .'" width="200" width="200" class="img-thumbnail" alt="..."></a>';
-                        }
-                    }
-                }
-?>
+<div class="row">
+    <?php
+    $stmt2 = $mysqli->prepare ("SELECT id, productname, img1  FROM product");
+    if($stmt2->execute()) {
+        $stmt2->bind_result($id, $productname, $img1);
+        while ($stmt2->fetch()) {
+            $image = unserialize($img1);
+            foreach($image as $pic) {
+                echo '
+                <div class="col-md-3" style="height= 300px;">
+                <h6>'. $productname .'</h6>
+                <a href="show_product.php?id='. $id .'">
+                <img src="'. $pic .'" width="200" height="300" class="loginpanel_img" alt="..."></a>
+
+                </div>
+                ';
+            }
+        }
+    }
+    ?>
 </div>
-</main>
-</div>
+
 </div>
 </main>
 </body>

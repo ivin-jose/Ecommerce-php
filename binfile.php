@@ -1,135 +1,82 @@
-<?php
-include_once 'loginpanel/db-connect.php';
-include_once 'loginpanel/session.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<?php
-		if (isset($_GET['search_word'])) {
-				$category = $_GET['search_word'];
-				$brand = $_GET['brand'];
-			}
-	?>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php echo'<title>'. $brand .'</title>' ?>
+        <?php
 
-	<!-- Bootstrap 5 -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.4/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.4/dist/js/bootstrap.bundle.min.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.5/dist/js/bootstrap.bundle.min.js"></script>
+        $id = $_GET['id'];
 
-	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-	<!-- google font -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
-
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="#">
-
-	<!-- font awsome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
-	<?php
-	include 'header.php';
-	?>
-
-</head>
-<body>
-	<div>
-		<div id="sort_filter_div" class="container">
-		<div id="sorting_div">
-			<div class="dropdown container space">
-				<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-					Sort
-				</button>
-				<ul class="dropdown-menu">
-					<li class="container filter_heading"><b>Price</b></li>
-					<?php
-					echo '
-					<li><a class="dropdown-item" href="sorting.php?value=1&&category='. $category.'">price low-> high</a></li>
-					<li><a class="dropdown-item" href="sorting.php?value=0&&category='. $category.'">price high-> low</a></li>
-					';
-					?>
-				</ul>
-			</div>
-		</div>
-			<div id="filter_div">
-				<div class="dropdown container space">
-					<button type="button" class="main_theme btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-						Filter
-					</button>
-					<ul class="dropdown-menu">
-						<li class="container filter_heading"><b>Brands</b></li>
-
-						<?php
-						$stmt3 = $mysqli->prepare ("SELECT DISTINCT brand FROM product WHERE catagory = '$category' ORDER BY brand ASC");
-						if($stmt3->execute()) {
-							$stmt3->bind_result($brand);
-						}
-						while ($stmt3->fetch()) {
-								echo '
-								<li><a class="dropdown-item" href="filter.php?brand='. $brand .'&&search_word='. $category .'">'. $brand.'</a></li>
-								';
-							}
-							?>
-						</ul>
-				</div>
-			</div>
-	</div>
-
-		<div class="row container row_style space">
-			
-			<?php
-			if (isset($_GET['search_word'])) {
-
-				$category = $_REQUEST['search_word'];
-				$brand = $_REQUEST['brand'];
-				$search = ('%'. $category. '%');
-				
-				$stmt2 = $mysqli->prepare ("SELECT id, catagory, productname, brand, img1, sellingprice, orginalprice, short_summery  FROM product WHERE productname LIKE '$search' OR brand LIKE '$search' OR type LIKE '$search' OR sellingprice LIKE '$search' OR catagory LIKE '$search' OR searchingkeywords LIKE '$search' catagory = '$category' AND brand = '$brand'");
-				if($stmt2->execute()) {
-					$stmt2->bind_result($id, $productname, $brand, $img1, $sellingprice, $orginal_price, $short_summery);
-					}}
-
-			while ($stmt2->fetch()) {
-				$image = unserialize($img1);
-				foreach($image as $pic) {
-					echo '
-					<div class="col-md-6 col-lg-6 container">
-					<a href="product_show.php?id='. $id .'">
-					<div class="products_show_img">
-					<div class="container space" style="width: 350px;">
-					<img src="loginpanel/'. $pic .'" class="d-block w-100" alt="...">
-					</div> 
-					<div class="container space">
-					<h4>'. $productname .'</h4>
-					<div class="price_dv">
-					<div class="price_div">
-					<h4 class="cart_product_selling_price">₹ '. $sellingprice .'</h4>
-					<h6 class="cart_product_orginal_price side_space">₹ '. $orginal_price .'</h6>
-					</div>
-					<p>'. $short_summery .'</p>
-					</div>
-					</div>
-					</div>
-					</a>
-					</div>
-					';
-				}
-			}
-			?>
-		</div>
-	</div>
-
-    <?php
-	include 'footer.php';
-	?>
-</body>
-</html>
-<script type="text/javascript" src="./assets/js/main.js"></script>
+        $stmt2 = $mysqli->prepare ("SELECT id, productname, specifications, sellingprice, orginalprice, short_summery, long_summery, brand, img1, img2, img3  FROM product WHERE id = '$id'");
+        if($stmt2->execute()) {
+            $stmt2->bind_result($id, $productname, $specifications, $selling_price, $orginal_price, $short_summery, $long_summery, $brand, $img1, $img2, $img3);
+            while ($stmt2->fetch()) {
+                $image1 = unserialize($img1);
+                $image3 = unserialize($img3);
+                $image2 = unserialize($img2);
+                foreach($image1 as $pic1) {
+                    foreach($image2 as $pic2){
+                        foreach($image3 as $pic3){
+                            echo '<div id="product_show_img_div" class="container">
+                            <div id="product_show_img" class="space container">
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="'. $pic1 .'" class="d-block w-100" alt="fff">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="'. $pic2 .'" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="'. $pic3 .'" class="d-block w-100" alt="...">
+                            </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                            </button>
+                            </div>
+                            </div>
+                            <div id="share_wishlist_main_div" class="space side_space">
+                            <div id="wishlist_div">
+                            <a href="adding_wishlist.php?id=2" id="wishlist_btn" class="sw main_theme"><i class="fa-solid fa-heart"></i></a>
+                            </div>
+                            <div id="share_div" class="space">
+                            <a href="#" id="share_btn" class="sw main_theme"><i class="fa-solid fa-share-nodes"></i></a>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="container space">
+                            <div class="container">
+                            <div>
+                            <h3>'. $productname .'</h3>
+                            </div>
+                            <div class="price_div">
+                            <div><h2 class="darkbg">$'. $selling_price .'</h2></div>
+                            <div class="side_space cart_product_orginal_price"><h5 id="">$'. $orginal_price .'</h5></div>
+                            </div>
+                            <div id="product_short_summary">
+                            <h5>'. $brand .'</h5>
+                            <p><b>'. $short_summery .'</b></p>
+                            </div>
+                            <div id="product_long_summary">
+                            '. $long_summery .'
+                            <br>
+                            </div>
+                            <div class="container price_div space">
+                            <div id="">
+                            <a class="cart_btns main_theme btn btn-primary adding_cart_btn" href="adding_cart.php?id=2">Add to cart</a>
+                            </div>
+                            <div id="">
+                            <a class="order_btn btn btn-primary side_space" href="place_order.php?id=2">PLACE ORDER</a>
+                            </div>
+                            </div>
+                            <div id="specifications">
+                            '. $specifications .'
+                            </div>';
+                        }
+                    }
+                }
+            }
+        }
+        ?>
+        
