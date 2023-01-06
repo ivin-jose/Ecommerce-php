@@ -84,6 +84,9 @@ if ($_SESSION["type"] != 'admin') {
                             <div class="container">
                             <div class="space">
                             <form action="update_product.php" method="POST">
+
+                            <input type="hidden" value="'. $id .'" class="form-control" name="id"/>
+
                             <label style="color: green;">Product Name</label>
                             <input type="text" value="'. $productname .'" class="form-control" name="productname"/>
                             </div>
