@@ -18,6 +18,6 @@ include_once 'loginpanel/db-connect.php';
          header('Location: profile.php');
      }
      else{
-        header('Location: update_address.php')
+        header('Location: update_address.php');
      }
   ?>

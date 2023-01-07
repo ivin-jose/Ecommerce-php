@@ -75,7 +75,7 @@
           <div class="col-md-6">
           <h2>Your Address</h2>
           '. $name .',<br>
-          '. $house .'(ho),<br>
+          '. $house .',<br>
           '. $po .'<br>
           '. $district .'<br>
           PIN :'. $pin .'<br>
